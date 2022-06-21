@@ -1,5 +1,5 @@
 FROM python:3.10
 
 WORKDIR /workdir
-COPY ./backend /workdir
+COPY . /workdir
 RUN pip install -r requirements.txt
