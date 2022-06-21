@@ -12,7 +12,6 @@ services:
 
   backend:
     build: ./backend
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/workdir
     ports:
@@ -21,8 +20,10 @@ services:
       - POSTGRES_NAME=nightstore
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
+    entrypoint: ["make", "start"]
     depends_on:
       - postgres_db
+    restart: on-failure
 
   pgadmin:
     image: dpage/pgadmin4
