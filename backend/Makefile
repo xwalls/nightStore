@@ -1,6 +1,7 @@
-start: migrate run_server
+start: migrate populate_db run_server
 
 migrate:
+	python manage.py makemigrations
 	python manage.py migrate
 
 run_server:
@@ -9,3 +10,5 @@ run_server:
 tests:
 	python manage.py test
 	
+populate_db:
+	python manage.py load_data
