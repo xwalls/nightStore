@@ -1,0 +1,17 @@
+name: Test on develop
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy repository
+        uses: actions/checkout@v2
+      - name: Build image
+        run: docker build --tag backend ./backend
+      - name: Run tests
+        run: docker run backend make tests
