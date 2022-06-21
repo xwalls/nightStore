@@ -4,7 +4,7 @@ services:
   postgres_db:
     image: postgres
     volumes:
-      - ./database:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=nightstore
       - POSTGRES_USER=admin
@@ -32,3 +32,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
+
+volumes:
+  db_data:
+    name: nightstore_db_data
