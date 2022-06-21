@@ -1,2 +1,4 @@
+celery
 Django
 psycopg2
+requests
