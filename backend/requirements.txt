@@ -1,5 +1,6 @@
 celery
 Django
 django-cors-headers
+djangorestframework
 psycopg2
 requests
