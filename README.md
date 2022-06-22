@@ -28,5 +28,5 @@ make down
 ## Visualize the API:
 - After starting containers we can call the API from our browser:
 ```bash
-http://localhost:8181/stations/
+http://localhost:8181/api/stations/?format=json
 ```
