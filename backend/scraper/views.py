@@ -2,9 +2,14 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from scraper.models import Station
 from django.core import serializers
+from .serializers import StationSerializer
+from rest_framework import viewsets
 
-# Create your views here.
-def stations(request):
-    stations = Station.objects.order_by('permisoid')[:5]
-    stations_list = serializers.serialize('json', stations)
-    return HttpResponse(stations_list, content_type="application/json")
+
+class StationViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Station.objects.all()
+    serializer_class = StationSerializer
+
